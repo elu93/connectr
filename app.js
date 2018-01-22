@@ -30,6 +30,9 @@ app.get('/', (req,res) => {
   res.sendFile(__dirname + '/client/build/index.html')
 })
 
+const usersController = require('./controllers/userController')
+app.use('/api/users', usersController)
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
