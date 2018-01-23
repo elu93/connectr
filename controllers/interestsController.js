@@ -10,7 +10,6 @@ router.get('/:interestId', (req, res) => {
         .then((user) => {
             const interest = user.interests.id(req.params.interestId)
             res.json(interest)
-            console.log(interest)
         }).catch((error) => 
             console.log(error))
 })

@@ -4,6 +4,7 @@ import axios from 'axios'
 class Interest extends Component {
 
     state = {
+        userId: '',
         interest: {},
         events: []
     }
@@ -19,7 +20,7 @@ class Interest extends Component {
                         interestName: res.data.interestName,
                     }
                     const events = res.data.events
-                    this.setState({interest, events})
+                    this.setState({userId, interest, events})
                 })
         }
     }
