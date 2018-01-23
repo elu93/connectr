@@ -11,10 +11,9 @@ router.get('/:eventId', (req, res) => {
     User.findById(req.params.userId)
         .then((user) => {
             const interest = user.interests.id(req.params.interestId)
-            .then((interests) => {
-                const event = interests.events.id(req.params.eventId)
-                res.json(event)
-            })
+            const event = interest.events.id(req.params.eventId)
+            console.log(event)
+            res.json(event)
         }).catch((error) => 
             console.log(error))
 })

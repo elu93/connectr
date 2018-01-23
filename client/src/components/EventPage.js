@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom';
 
 
 class EventPage extends Component {
@@ -23,16 +24,24 @@ class EventPage extends Component {
                     }
                     const events = res.data.events
                     this.setState({userId, interestId, events})
-                    console.log(this.state.userId)
                 })
         }
     }
 
     render() {
+        const events = {...this.state.events}
+        console.log(this.state.events)
         return(
             <div>
                 Hello From Events!
+                <div>
+                    Events:
+                <p>
+                    {events.eventName}
+                </p>
+                </div>
             </div>
+            
         )
     }
 }
