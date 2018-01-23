@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import UsersPage from './components/UsersPage'
 import InterestPage from './components/InterestPage'
 import Interest from './components/Interest'
-
+import Events from './components/EventPage'
 class App extends Component {
   render() {
     return (
@@ -18,6 +18,7 @@ class App extends Component {
             <Route exact path="/login" component={UsersPage}/>
             <Route exact path="/user/:userId" component={InterestPage}/>
             <Route exact path="/user/:userId/interest/:interestId" component={Interest}/>
+            <Route exact path="/user/:userId/interest/:interestId/event/:eventId" component={Events}/>
           </Switch>
         </div>
       </Router>

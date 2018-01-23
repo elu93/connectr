@@ -21,6 +21,7 @@ class Interest extends Component {
                     }
                     const events = res.data.events
                     this.setState({userId, interest, events})
+                    console.log(this.state.userId)
                 })
         }
     }
@@ -34,7 +35,7 @@ class Interest extends Component {
             <p>
                 {this.state.events.map((event, index) => {
                         return (
-                            <p>{event.eventName}</p>
+                            <Link to={`/user/${this.state.userId}/interest/${this.state.interest._id}/event/${event._id}`}> {event.eventName} </Link>
                         )
                     })}
             </p>

@@ -46,6 +46,8 @@ const usersController = require('./controllers/userController')
 app.use('/api/users', usersController)
 const interestsController = require('./controllers/interestsController')
 app.use('/api/users/:userId/interest', interestsController)
+const eventsController = require('./controllers/eventsController')
+app.use('/api/users/:userId/interest/:interestId/event', eventsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
