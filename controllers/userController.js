@@ -23,4 +23,13 @@ router.post('/', (req, res) => {
         .catch((error) => console.log(error))
 })
 
+router.get('/:userId', (req, res) => {
+    User.findById(req.params.userId)
+        .then((user) => {
+            res.json(user)
+            console.log(user)
+        }).catch((error) => 
+            console.log(error))
+})
+
 module.exports = router

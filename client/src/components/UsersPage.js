@@ -46,11 +46,6 @@ class UsersPage extends Component {
     }
 
     render() {
-
-        const InterestPageComponent = () => (
-            <InterestPage
-                users={this.state.users}/>
-        )
         
         return (
             <div>
@@ -58,7 +53,7 @@ class UsersPage extends Component {
                 <h3>Selection of Users</h3>
                 {this.state.users.map((user, index) => {
                         return (
-                            <Link to={`/user/${user._id}`} component={InterestPageComponent}>{user.userName}</Link>
+                            <Link to={`/user/${user._id}`}>{user.userName}</Link>
                         )
                     })}
                 <div>
