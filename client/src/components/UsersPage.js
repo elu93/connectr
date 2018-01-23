@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import axios from 'axios'
+import InterestPage from './InterestPage'
 
-class HomePage extends Component {
+class UsersPage extends Component {
 
     state = {
-        users: []
+        users: [],
+        newUser: {}
     }
 
     componentWillMount() {
@@ -20,38 +22,43 @@ class HomePage extends Component {
             })
     }
 
-    createUser = () => {
-        axios
-            .post('/api/users', {user: this.state.user})
-            .then((res) => {
-                this.setState({redirectToHome: true, createdUser: res.data})
-            })
+    
+    createUser = async() => {
+        const response = await axios.post(`/api/users`, this.state.newUser)
+        const newUser = response.data
+        const newUsers = [...this.state.users]
+        newUsers.unshift(newUser)
+        this.setState({users: newUsers})
     }
 
     handleChange = (event) => {
-        const user = {
-            ...this.state.user
+        const newUser = {
+            ...this.state.newUser
         }
-        user[event.target.name] = event.target.value
-        this.setState({user})
+        newUser[event.target.name] = event.target.value
+        this.setState({newUser})
     }
 
     handleSignUp = (event) => {
+        console.log(`Event: ${event}`)
         event.preventDefault()
         this.createUser()
     }
 
     render() {
+
+        const InterestPageComponent = () => (
+            <InterestPage
+                users={this.state.users}/>
+        )
+        
         return (
             <div>
                 <h1>Users</h1>
                 <h3>Selection of Users</h3>
-                {this
-                    .state
-                    .users
-                    .map((user, index) => {
+                {this.state.users.map((user, index) => {
                         return (
-                            <Link to={`/user/${user._id}`}>{user.userName}</Link>
+                            <Link to={`/user/${user._id}`} component={InterestPageComponent}>{user.userName}</Link>
                         )
                     })}
                 <div>
@@ -89,15 +96,7 @@ class HomePage extends Component {
                                 type="text"
                                 value={this.state.age}/>
                         </div>
-                        <div>
-                            <label htmlFor="interests">Interests</label>
-                            <input
-                                onChange={this.handleChange}
-                                name="interests"
-                                type="text"
-                                value={this.state.interests}/>
-                        </div>
-                        <button>Sign Up</button>
+                        <input type="submit" value="New User"/>
                     </form>
                 </div>
             </div>
@@ -106,4 +105,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage
+export default UsersPage
