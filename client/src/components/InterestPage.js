@@ -9,18 +9,6 @@ class InterestPage extends Component {
     }
 
     componentWillMount() {
-        const {match: {
-                params
-            }} = this.props
-        axios
-            .get(`/api/users/${params.userId}`)
-            .then(({data: user}) => {
-                console.log('user', user)
-                this.setState({user})
-            })
-    }
-
-    componentWillMount() {
         if (this.props.match.params) {
             const {userId} = this.props.match.params
             axios.get(`/api/users/${userId}`)
