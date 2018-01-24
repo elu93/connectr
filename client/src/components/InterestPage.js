@@ -26,6 +26,18 @@ class InterestPage extends Component {
         }
     }
 
+    deleteUser = async(user) => {
+        try {
+            await axios.delete(`/api/users/${user._id}`) // Ask the server to delete this idea
+            const indexToDelete = this.state.users.indexOf(user) // Determine where in our ideas array it lived
+            const newUsers = [...this.state.users]
+            newUsers.splice(indexToDelete, 1)
+            this.setState({users: newUsers})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     render() {
         const user = this.state.user
         console.log(user)
@@ -47,6 +59,7 @@ class InterestPage extends Component {
                 </p>
                 </div>
                 <Link to="/login ">Back to Home</Link>< br /> 
+                <input type="submit" value="Delete User" onClick={() => {this.deleteUser}}></input>
             </div>
         );
     }

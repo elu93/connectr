@@ -32,13 +32,10 @@ class UsersPage extends Component {
 
     deleteUser = async(user) => {
         try {
-            await axios.delete(`/api/ideas/${user._id}`) // Ask the server to delete this idea
-            const indexToDelete = this
-                .state
-                .users
-                .indexOf(user) // Determine where in our ideas array it lived
-            const newUsers = [...this.state.users] // copy the old ideas list into a new one
-            newUsers.splice(indexToDelete, 1) // remove the idea we deleted from this new array
+            await axios.delete(`/api/users/${user._id}`) // Ask the server to delete this idea
+            const indexToDelete = this.state.users.indexOf(user) // Determine where in our ideas array it lived
+            const newUsers = [...this.state.users]
+            newUsers.splice(indexToDelete, 1)
             this.setState({users: newUsers})
         } catch (error) {
             console.log(error)
@@ -72,7 +69,7 @@ class UsersPage extends Component {
                             return (
                                 <div>
                                     <Link to={`/user/${user._id}`}>{user.userName}</Link>
-                                    <input type="submit" value="Delete User"onClick={() => {this.deleteUser}}></input>
+                                    <input type="submit" value="Delete User" onClick={() => {this.deleteUser(user)}}></input>
                                 </div>
                                 
                             )
