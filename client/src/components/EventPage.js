@@ -6,9 +6,7 @@ import {Link} from 'react-router-dom';
 class EventPage extends Component {
 
     state = {
-        userId: '',
-        interestId: '',
-        events: {}
+        event: {}
     }
 
     componentWillMount() {
@@ -21,25 +19,23 @@ class EventPage extends Component {
                     const event = {
                         _id: res.data._id,
                         eventName: res.data.eventName,
+                        location: res.data.location,
+                        date: res.data.date,
+                        price: res.data.price
                     }
-                    const events = res.data.events
-                    this.setState({userId, interestId, events})
+                    this.setState({event})
                 })
         }
     }
 
     render() {
-        const events = {...this.state.events}
-        console.log(this.state.events)
         return(
             <div>
-                Hello From Events!
-                <div>
-                    Events:
-                <p>
-                    {events.eventName}
-                </p>
-                </div>
+                Event
+                <p>{this.state.event.eventName}</p>
+                <p>{this.state.event.location}</p>
+                <p>{this.state.event.date}</p>
+                <p>{this.state.event.price}</p>
             </div>
             
         )

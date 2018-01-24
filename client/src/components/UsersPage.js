@@ -22,13 +22,27 @@ class UsersPage extends Component {
             })
     }
 
-    
     createUser = async() => {
         const response = await axios.post(`/api/users`, this.state.newUser)
         const newUser = response.data
         const newUsers = [...this.state.users]
         newUsers.unshift(newUser)
         this.setState({users: newUsers})
+    }
+
+    deleteUser = async(user) => {
+        try {
+            await axios.delete(`/api/ideas/${user._id}`) // Ask the server to delete this idea
+            const indexToDelete = this
+                .state
+                .users
+                .indexOf(user) // Determine where in our ideas array it lived
+            const newUsers = [...this.state.users] // copy the old ideas list into a new one
+            newUsers.splice(indexToDelete, 1) // remove the idea we deleted from this new array
+            this.setState({users: newUsers})
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     handleChange = (event) => {
@@ -46,16 +60,25 @@ class UsersPage extends Component {
     }
 
     render() {
-        
         return (
             <div>
                 <h1>Users</h1>
                 <h3>Selection of Users</h3>
-                {this.state.users.map((user, index) => {
-                        return (
-                            <Link to={`/user/${user._id}`}>{user.userName}</Link>
-                        )
-                    })}
+                <p>
+                    {this
+                        .state
+                        .users
+                        .map((user, index) => {
+                            return (
+                                <div>
+                                    <Link to={`/user/${user._id}`}>{user.userName}</Link>
+                                    <input type="submit" value="Delete User"onClick={() => {this.deleteUser}}></input>
+                                </div>
+                                
+                            )
+                        })}
+                </p>
+
                 <div>
                     <h1>New User</h1>
                     <form onSubmit={this.handleSignUp}>

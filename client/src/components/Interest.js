@@ -18,6 +18,8 @@ class Interest extends Component {
                     const interest = {
                         _id: res.data._id,
                         interestName: res.data.interestName,
+                        yearsOfExperience: res.data.yearsOfExperience,
+                        level: res.data.level
                     }
                     const events = res.data.events
                     this.setState({userId, interest, events})
@@ -31,6 +33,8 @@ class Interest extends Component {
             <div>
             <h1>Interests</h1>
             <p>{this.state.interest.interestName}</p>
+            <p>{this.state.interest.yearsOfExperience}</p>
+            <p>{this.state.interest.level}</p>
                 Events:
             <p>
                 {this.state.events.map((event, index) => {
