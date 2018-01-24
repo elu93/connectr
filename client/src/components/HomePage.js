@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 const LandingPage = styled.div`
     width: 100vw;
@@ -17,7 +18,19 @@ const LandingPage = styled.div`
         margin-right: 50%;
         transform: translate(-50%, -50%);
         color: white;
+        font-size: 3em;
     }
+
+    a:link {
+        text-decoration: none;
+        color: white;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: white;
+    }
+
 `
 
 class HomePage extends Component {
@@ -25,7 +38,7 @@ class HomePage extends Component {
         return(
             <LandingPage>
                 <div>
-                    Hello From HomePage
+                <Link to='/login'> Connectr </Link>
                 </div>
             </LandingPage>
         )
