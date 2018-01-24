@@ -5,6 +5,8 @@ import UsersPage from './components/UsersPage'
 import InterestPage from './components/InterestPage'
 import Interest from './components/Interest'
 import Events from './components/EventPage'
+import UserProfileUpdate from './components/UserProfileUpdate'
+
 class App extends Component {
   render() {
     return (

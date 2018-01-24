@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
+import UserProfileUpdate from './UserProfileUpdate'
 class InterestPage extends Component {
 
     state = {
@@ -26,16 +27,25 @@ class InterestPage extends Component {
         }
     }
 
-    deleteUser = async(user) => {
+    updateUser = async(user) => {
         try {
-            await axios.delete(`/api/users/${user._id}`) // Ask the server to delete this idea
-            const indexToDelete = this.state.users.indexOf(user) // Determine where in our ideas array it lived
-            const newUsers = [...this.state.users]
-            newUsers.splice(indexToDelete, 1)
-            this.setState({users: newUsers})
+            const response = await axios.patch(`/api/ideas/${user._id}`, user)
+            const updatedUser = response.data
+            this.setState({updatedUser})
         } catch (error) {
             console.log(error)
         }
+    }
+
+    handleChange = (event) => {
+        const updateUser = {...this.state.user}
+        updateUser[event.target.name] = event.target.value
+        this.setState({user: updateUser})
+    }
+
+    handleSignUp = (event) => {
+        console.log(`Event: ${event}`)
+        event.preventDefault()
     }
 
     render() {
@@ -59,7 +69,7 @@ class InterestPage extends Component {
                 </p>
                 </div>
                 <Link to="/login ">Back to Home</Link>< br /> 
-                <input type="submit" value="Delete User" onClick={() => {this.deleteUser}}></input>
+                <UserProfileUpdate updateUser={this.updateUser} handleSignUp={this.handleSignUp} handleChange={this.handleChange}/>
             </div>
         );
     }
