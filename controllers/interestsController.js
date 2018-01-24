@@ -14,4 +14,6 @@ router.get('/:interestId', (req, res) => {
             console.log(error))
 })
 
+
+
 module.exports = router

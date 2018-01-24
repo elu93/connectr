@@ -32,8 +32,8 @@ class UsersPage extends Component {
 
     deleteUser = async(user) => {
         try {
-            await axios.delete(`/api/users/${user._id}`) // Ask the server to delete this idea
-            const indexToDelete = this.state.users.indexOf(user) // Determine where in our ideas array it lived
+            await axios.delete(`/api/users/${user._id}`)
+            const indexToDelete = this.state.users.indexOf(user)
             const newUsers = [...this.state.users]
             newUsers.splice(indexToDelete, 1)
             this.setState({users: newUsers})

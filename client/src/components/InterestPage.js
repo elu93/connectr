@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
 import UserProfileUpdate from './UserProfileUpdate'
-class InterestPage extends Component {
 
+class InterestPage extends Component {
     state = {
         user: {},
         interests: []
@@ -27,10 +27,11 @@ class InterestPage extends Component {
         }
     }
 
-    updateUser = async(user) => {
+    updateUser = async() => {
         try {
-            const response = await axios.patch(`/api/ideas/${user._id}`, user)
+            const response = await axios.patch(`/api/users/${this.state.user._id}`, this.state.user)
             const updatedUser = response.data
+            console.log(updatedUser)
             this.setState({updatedUser})
         } catch (error) {
             console.log(error)
@@ -44,8 +45,9 @@ class InterestPage extends Component {
     }
 
     handleSignUp = (event) => {
-        console.log(`Event: ${event}`)
+        console.log(`Event: `, event.target)
         event.preventDefault()
+        this.updateUser()
     }
 
     render() {

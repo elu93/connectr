@@ -6,17 +6,15 @@ import InterestPage from './components/InterestPage'
 import Interest from './components/Interest'
 import Events from './components/EventPage'
 import UserProfileUpdate from './components/UserProfileUpdate'
+import HomePage from './components/HomePage'
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <div>
-            <Link to='/login'>Home</Link>
-          </div>
           <Switch>
-            {/* <Route exact path="/" component={HomePage}/> */}
+            <Route exact path="/" component={HomePage}/>
             <Route exact path="/login" component={UsersPage}/>
             <Route exact path="/user/:userId" component={InterestPage}/>
             <Route exact path="/user/:userId/interest/:interestId" component={Interest}/>

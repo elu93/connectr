@@ -9,19 +9,20 @@ class UserProfileUpdate extends Component {
         updatedUser: {}
     }
 
-    updateUser = (event) => {
+    updateNewUser = (event) => {
         event.preventDefault()
         this.props.updateUser(this.state.updatedUser)
+        console.log(this.state.updatedUser)
     }
     render() {
         return (
             <div>
                     <h1>Update User</h1>
-                    <form onSubmit={this.handleSignUp}>
+                    <form onSubmit={this.props.handleSignUp}>
                         <div>
                             <label htmlFor="userName">User Name</label>
                             <input
-                                onChange={this.handleChange}
+                                onChange={this.props.handleChange}
                                 name="userName"
                                 type="text"
                                 value={this.state.userName}/>
@@ -29,7 +30,7 @@ class UserProfileUpdate extends Component {
                         <div>
                             <label htmlFor="firstName">First Name</label>
                             <input
-                                onChange={this.handleChange}
+                                onChange={this.props.handleChange}
                                 name="firstName"
                                 type="text"
                                 value={this.state.firstName}/>
@@ -37,7 +38,7 @@ class UserProfileUpdate extends Component {
                         <div>
                             <label htmlFor="lastName">Last Name</label>
                             <input
-                                onChange={this.handleChange}
+                                onChange={this.props.handleChange}
                                 name="lastName"
                                 type="text"
                                 value={this.state.lastName}/>
@@ -45,12 +46,12 @@ class UserProfileUpdate extends Component {
                         <div>
                             <label htmlFor="age">Age</label>
                             <input
-                                onChange={this.handleChange}
+                                onChange={this.props.handleChange}
                                 name="age"
                                 type="text"
                                 value={this.state.age}/>
                         </div>
-                        <input type="submit" value="New User"/>
+                        <input type="submit" value="Edit User"/>
                     </form>
                 </div>
         )
