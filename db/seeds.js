@@ -60,10 +60,41 @@ const elizabeth = new User({
     firstName: 'Elizabeth',
     lastName: 'Nguyen',
     age: 23,
+    photoUrl: 'https://picsum.photos/200/300/?random',
+    interests: [coffee, painting, cooking]
+})
+
+const eric = new User({
+    userName: 'e.lu',
+    firstName: 'Eric',
+    lastName: 'Lu',
+    age: 24,
+    photoUrl: 'https://picsum.photos/200/300/?random',
+    interests: [coffee, painting, cooking]
+})
+
+const winnie = new User({
+    userName: 'winnie_lawl',
+    firstName: 'Winnie',
+    lastName: 'Law',
+    age: 23,
+    photoUrl: 'https://picsum.photos/200/300/?random',
+    interests: [coffee, painting, cooking]
+})
+
+const phil = new User({
+    userName: 'p_89',
+    firstName: 'Phil',
+    lastName: 'Lu',
+    age: 28,
+    photoUrl: 'https://picsum.photos/200/300/?random',
     interests: [coffee, painting, cooking]
 })
 
 User.remove({})
     .then(() => elizabeth.save())
+    .then(() => eric.save())
+    .then(() => winnie.save())
+    .then(() => phil.save())
     .then(() => console.log('Successful Save'))
     .then(() => mongoose.connection.close())

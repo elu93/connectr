@@ -60,6 +60,10 @@ const UserSchema = new Schema({
         type: Number,
         required: false
     },
+    photoUrl: {
+        type: String,
+        default: 'https://picsum.photos/200/300/?random'
+    },
     interests: [InterestSchema]
 }, {
     timestamps: {}

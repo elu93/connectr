@@ -2,6 +2,17 @@ import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import axios from 'axios'
 import InterestPage from './InterestPage'
+import styled from 'styled-components'
+
+const UserShowPage = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    h1 {
+        margin: 0;
+    }
+`
 
 class UsersPage extends Component {
 
@@ -58,20 +69,18 @@ class UsersPage extends Component {
 
     render() {
         return (
-            <div>
+            <UserShowPage>
+                <div>
                 <h1>Users</h1>
                 <h3>Selection of Users</h3>
                 <p>
-                    {this
-                        .state
-                        .users
-                        .map((user, index) => {
+                    {this.state.users.map((user, index) => {
                             return (
                                 <div>
-                                    <Link to={`/user/${user._id}`}>{user.userName}</Link>
+                                    <Link to={`/user/${user._id}`}><img src={user.photoUrl} alt={user.userName}/></Link>
+                                    <p>{user.userName}</p>
                                     <input type="submit" value="Delete User" onClick={() => {this.deleteUser(user)}}></input>
-                                </div>
-                                
+                                </div>    
                             )
                         })}
                 </p>
@@ -115,7 +124,7 @@ class UsersPage extends Component {
                     </form>
                 </div>
             </div>
-
+            </UserShowPage>
         )
     }
 }
