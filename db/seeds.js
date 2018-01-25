@@ -60,7 +60,7 @@ const elizabeth = new User({
     firstName: 'Elizabeth',
     lastName: 'Nguyen',
     age: 23,
-    photoUrl: 'https://picsum.photos/200/300/?random',
+    photoUrl: 'https://picsum.photos/300/300/?random',
     interests: [coffee, painting, cooking]
 })
 
@@ -69,7 +69,7 @@ const eric = new User({
     firstName: 'Eric',
     lastName: 'Lu',
     age: 24,
-    photoUrl: 'https://picsum.photos/200/300/?random',
+    photoUrl: 'https://picsum.photos/300/300/?random',
     interests: [coffee, painting, cooking]
 })
 
@@ -78,7 +78,7 @@ const winnie = new User({
     firstName: 'Winnie',
     lastName: 'Law',
     age: 23,
-    photoUrl: 'https://picsum.photos/200/300/?random',
+    photoUrl: 'https://picsum.photos/300/300/?random',
     interests: [coffee, painting, cooking]
 })
 
@@ -87,7 +87,7 @@ const phil = new User({
     firstName: 'Phil',
     lastName: 'Lu',
     age: 28,
-    photoUrl: 'https://picsum.photos/200/300/?random',
+    photoUrl: 'https://picsum.photos/300/300/?random',
     interests: [coffee, painting, cooking]
 })
 
