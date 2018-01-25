@@ -2,6 +2,26 @@ import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import axios from 'axios'
 import InterestPage from './InterestPage'
+import styled from 'styled-components'
+
+const Input = styled.input`
+    padding: 0.5em;
+    margin: 0.5em;
+    color: palevioletred;
+    background: papayawhip;
+    border: none;
+    border-radius: 3px;
+`;
+
+
+const Button = styled.input`
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+`;
 
 class UserProfileUpdate extends Component {
 
@@ -21,7 +41,7 @@ class UserProfileUpdate extends Component {
                     <form onSubmit={this.props.handleSignUp}>
                         <div>
                             <label htmlFor="userName">User Name</label>
-                            <input
+                            <Input
                                 onChange={this.props.handleChange}
                                 name="userName"
                                 type="text"
@@ -29,7 +49,7 @@ class UserProfileUpdate extends Component {
                         </div>
                         <div>
                             <label htmlFor="firstName">First Name</label>
-                            <input
+                            <Input
                                 onChange={this.props.handleChange}
                                 name="firstName"
                                 type="text"
@@ -37,7 +57,7 @@ class UserProfileUpdate extends Component {
                         </div>
                         <div>
                             <label htmlFor="lastName">Last Name</label>
-                            <input
+                            <Input
                                 onChange={this.props.handleChange}
                                 name="lastName"
                                 type="text"
@@ -45,13 +65,13 @@ class UserProfileUpdate extends Component {
                         </div>
                         <div>
                             <label htmlFor="age">Age</label>
-                            <input
+                            <Input
                                 onChange={this.props.handleChange}
                                 name="age"
                                 type="text"
                                 value={this.state.age}/>
                         </div>
-                        <input type="submit" value="Edit User"/>
+                        <Button type="submit" value="Edit User"/>
                     </form>
                 </div>
         )

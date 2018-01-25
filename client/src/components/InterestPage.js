@@ -2,6 +2,29 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
 import UserProfileUpdate from './UserProfileUpdate'
+import styled from 'styled-components'
+
+const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`
+
+const RemoveLinkUnderlines = styled.a`
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+`
+
+
 
 class InterestPage extends Component {
     state = {
@@ -20,6 +43,7 @@ class InterestPage extends Component {
                         firstName: res.data.firstName,
                         lastName: res.data.lastName,
                         age: res.data.age,
+                        photoUrl: res.data.photoUrl
                     }
                     const interests = res.data.interests
                     this.setState({user, interests})
@@ -55,22 +79,32 @@ class InterestPage extends Component {
         console.log(user)
         return (
             <div>
-                <h1>Interests</h1>
-                <p>{this.state.user.userName}</p>
-                <p>{this.state.user.firstName}</p>
-                <p>{this.state.user.lastName}</p>
-                <p>{this.state.user.age}</p>
+                <FlexContainer>
+                <div>
+                <h1>User Profile</h1>
+                <p className="img-block"><img src={this.state.user.photoUrl}/></p>
+                <div>
+                <p>Usernme: {this.state.user.userName}</p>
+                <p>Name: {this.state.user.firstName} {this.state.user.lastName}</p>
+                <p>Age: {this.state.user.age}</p>
+                </div>
+                </div>
+                </FlexContainer>
                 <div>
                     Interests:
                 <p>
                     {this.state.interests.map((interest, index) => {
                             return (
-                                <Link to={`/user/${user._id}/interest/${interest._id}`}>{interest.interestName}, </Link>
+                                <RemoveLinkUnderlines>
+                                    <p>
+                                    <Link to={`/user/${user._id}/interest/${interest._id}`}>{interest.interestName}, </Link>
+                                    </p>
+                                </RemoveLinkUnderlines>
                             )
                         })}
                 </p>
                 </div>
-                <Link to="/login ">Back to Home</Link>< br /> 
+                <Link to="/">Back to Home</Link>< br /> 
                 <UserProfileUpdate updateUser={this.updateUser} handleSignUp={this.handleSignUp} handleChange={this.handleChange}/>
             </div>
         );
