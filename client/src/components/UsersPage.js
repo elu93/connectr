@@ -3,6 +3,22 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import axios from 'axios'
 import InterestPage from './InterestPage'
 import styled from 'styled-components'
+import NavBar from './styled_components/NavBar'
+import Connectr from '../connectr_img.png'
+import {
+    CardWrapper,
+    CardHeader,
+    CardHeading,
+    CardBody,
+    CardFieldset,
+    CardInput,
+    CardIcon,
+    CardOptionsNote,
+    CardOptions,
+    CardOptionsItem,
+    CardButton,
+    CardLink
+    } from "./styled_components/Card";
 
 const UserShowPage = styled.div`
     display: flex;
@@ -11,6 +27,7 @@ const UserShowPage = styled.div`
 
     h1 {
         margin: 0;
+        vertical-align: middle;
     }
 `
 
@@ -71,6 +88,11 @@ class UsersPage extends Component {
         return (
             <UserShowPage>
                 <div>
+                <NavBar>
+            <header>
+                <img src={Connectr}/>
+            </header>
+            </NavBar>
                 <h1>Users</h1>
                 <h3>Selection of Users</h3>
                 <p>
@@ -86,11 +108,14 @@ class UsersPage extends Component {
                 </p>
 
                 <div>
+                    
+                    <CardWrapper>
                     <h1>New User</h1>
+                    <br/>
                     <form onSubmit={this.handleSignUp}>
                         <div>
                             <label htmlFor="userName">User Name</label>
-                            <input
+                            <CardInput
                                 onChange={this.handleChange}
                                 name="userName"
                                 type="text"
@@ -98,7 +123,7 @@ class UsersPage extends Component {
                         </div>
                         <div>
                             <label htmlFor="firstName">First Name</label>
-                            <input
+                            <CardInput
                                 onChange={this.handleChange}
                                 name="firstName"
                                 type="text"
@@ -106,7 +131,7 @@ class UsersPage extends Component {
                         </div>
                         <div>
                             <label htmlFor="lastName">Last Name</label>
-                            <input
+                            <CardInput
                                 onChange={this.handleChange}
                                 name="lastName"
                                 type="text"
@@ -114,7 +139,7 @@ class UsersPage extends Component {
                         </div>
                         <div>
                             <label htmlFor="age">Age</label>
-                            <input
+                            <CardInput
                                 onChange={this.handleChange}
                                 name="age"
                                 type="text"
@@ -122,6 +147,7 @@ class UsersPage extends Component {
                         </div>
                         <input type="submit" value="New User"/>
                     </form>
+                    </CardWrapper>
                 </div>
             </div>
             </UserShowPage>

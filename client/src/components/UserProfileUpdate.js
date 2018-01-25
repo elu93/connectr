@@ -3,25 +3,21 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import axios from 'axios'
 import InterestPage from './InterestPage'
 import styled from 'styled-components'
-
-const Input = styled.input`
-    padding: 0.5em;
-    margin: 0.5em;
-    color: palevioletred;
-    background: papayawhip;
-    border: none;
-    border-radius: 3px;
-`;
-
-
-const Button = styled.input`
-    color: palevioletred;
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-`;
+import Button from './styled_components/Button'
+import {
+    CardWrapper,
+    CardHeader,
+    CardHeading,
+    CardBody,
+    CardFieldset,
+    CardInput,
+    CardIcon,
+    CardOptionsNote,
+    CardOptions,
+    CardOptionsItem,
+    CardButton,
+    CardLink
+    } from "./styled_components/Card";
 
 class UserProfileUpdate extends Component {
 
@@ -37,42 +33,48 @@ class UserProfileUpdate extends Component {
     render() {
         return (
             <div>
+                    <CardWrapper>
                     <h1>Update User</h1>
                     <form onSubmit={this.props.handleSignUp}>
                         <div>
-                            <label htmlFor="userName">User Name</label>
-                            <Input
+                            <label htmlFor="userName"></label>
+                            <CardInput
                                 onChange={this.props.handleChange}
                                 name="userName"
                                 type="text"
-                                value={this.state.userName}/>
+                                value={this.state.userName}
+                                placeholder="Username"/>
                         </div>
                         <div>
-                            <label htmlFor="firstName">First Name</label>
-                            <Input
+                            <label htmlFor="firstName"></label>
+                            <CardInput
                                 onChange={this.props.handleChange}
                                 name="firstName"
                                 type="text"
-                                value={this.state.firstName}/>
+                                value={this.state.firstName}
+                                placeholder="First Name"/>
                         </div>
                         <div>
-                            <label htmlFor="lastName">Last Name</label>
-                            <Input
+                            <label htmlFor="lastName"></label>
+                            <CardInput
                                 onChange={this.props.handleChange}
                                 name="lastName"
                                 type="text"
-                                value={this.state.lastName}/>
+                                value={this.state.lastName}
+                                placeholder="Last Name"/>
                         </div>
                         <div>
-                            <label htmlFor="age">Age</label>
-                            <Input
+                            <label htmlFor="age"></label>
+                            <CardInput
                                 onChange={this.props.handleChange}
                                 name="age"
                                 type="text"
-                                value={this.state.age}/>
+                                value={this.state.age}
+                                placeholder="Age"/>
                         </div>
                         <Button type="submit" value="Edit User"/>
                     </form>
+                    </CardWrapper>
                 </div>
         )
     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import NavBar from './styled_components/NavBar'
+import Connectr from '../connectr_img.png'
 
 const LandingPage = styled.div`
     width: 100vw;
@@ -36,11 +38,18 @@ const LandingPage = styled.div`
 class HomePage extends Component {
     render() {
         return(
+            <div>
+            <NavBar>
+            <header>
+                <img src={Connectr}/>
+            </header>
+            </NavBar>
             <LandingPage>
                 <div>
                 <Link to='/login'> Connectr </Link>
                 </div>
             </LandingPage>
+            </div>
         )
     }
 }
