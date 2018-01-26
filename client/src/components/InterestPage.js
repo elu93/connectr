@@ -114,14 +114,14 @@ class InterestPage extends Component {
                 </div>
                 </div>
                 <div>
-                    Interests:
+                    <h1>Interests</h1>
                 <p>
                     {this.state.interests.map((interest, index) => {
                             return (
                                 <RemoveLinkUnderlines>
-                                    <p>
-                                    <Link to={`/user/${user._id}/interest/${interest._id}`}>{interest.interestName}, </Link>
-                                    </p>
+                                    <span>
+                                    <Link to={`/user/${user._id}/interest/${interest._id}`}><img src={interest.interestPhoto}/></Link>
+                                    </span>
                                 </RemoveLinkUnderlines>
                             )
                         })}

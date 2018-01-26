@@ -38,6 +38,10 @@ const InterestSchema = new Schema({
         required: false,
         default: 'Novice'
     },
+    interestPhoto: {
+        type: String,
+        required: true
+    },
     events: [EventSchema]
 }, {
     timestamps: {}

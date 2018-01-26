@@ -37,6 +37,7 @@ const coffee = new Interest({
     interestName: 'Coffee',
     yearsOfExperience: 5,
     level: 'Expert',
+    interestPhoto: 'https://source.unsplash.com/6VhPY27jdps/300x300',
     events: [coffeeMaking]
 })
 
@@ -44,6 +45,7 @@ const painting = new Interest({
     interestName: 'Painting',
     yearsOfExperience: 15,
     level: 'Expert',
+    interestPhoto: 'https://source.unsplash.com/Sj0nhVIb4eY/300x300',
     events: [portrait]
 })
 
@@ -51,6 +53,7 @@ const cooking = new Interest({
     interestName: 'Cooking',
     yearsOfExperience: 2,
     level: 'Novice',
+    interestPhoto: 'https://source.unsplash.com/uQs1802D0CQ/300x300',
     events: [cookingPairs]
 })
 
