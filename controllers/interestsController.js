@@ -15,5 +15,4 @@ router.get('/:interestId', (req, res) => {
 })
 
 
-
 module.exports = router

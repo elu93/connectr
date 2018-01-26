@@ -1,6 +1,40 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
+import styled from 'styled-components'
+import NavBar from './styled_components/NavBar'
+import Connectr from '../connectr_img.png'
+
+const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    border: 1px solid black;
+
+    h4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    }
+`
+
+
+const RemoveLinkUnderlines = styled.a`
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+`
 
 
 class EventPage extends Component {
@@ -21,7 +55,8 @@ class EventPage extends Component {
                         eventName: res.data.eventName,
                         location: res.data.location,
                         date: res.data.date,
-                        price: res.data.price
+                        price: res.data.price,
+                        eventImage: res.data.eventImage
                     }
                     this.setState({event})
                 })
@@ -30,14 +65,15 @@ class EventPage extends Component {
 
     render() {
         return(
-            <div>
-                Event
-                <p>{this.state.event.eventName}</p>
-                <p>{this.state.event.location}</p>
-                <p>{this.state.event.date}</p>
-                <p>{this.state.event.price}</p>
-            </div>
-            
+            <FlexContainer>
+                <div>
+                <h1>{this.state.event.eventName}</h1>
+                <h3>Address: {this.state.event.location}</h3>
+                <h3>Date: {this.state.event.date}</h3>
+                <h3>Price: {this.state.event.price}</h3>
+                <p><img src={this.state.event.eventImage}/></p>
+                </div>
+            </FlexContainer>
         )
     }
 }

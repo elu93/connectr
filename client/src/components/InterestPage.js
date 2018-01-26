@@ -22,9 +22,6 @@ const FlexContainer = styled.div`
     }
 `
 
-const paragraphContainer = styled.h4`
-    
-`
 
 const RemoveLinkUnderlines = styled.a`
     a:link {

@@ -16,21 +16,24 @@ const coffeeMaking = new Events({
     eventName: 'Make Expresso - Stove Roast Method!',
     location: "125 Ponce City Market",
     date: '1/25/2018',
-    price: 25
+    price: 25,
+    eventImage: 'https://source.unsplash.com/dPzqzWI6AO8/300x300'
 })
 
 const portrait = new Events({
     eventName: 'Paint Your Partner',
     location: "125 Ponce City Market",
     date: '1/30/2018',
-    price: 30
+    price: 30,
+    eventImage: 'https://source.unsplash.com/X6CZGpJBi8U/300x300'
 })
 
 const cookingPairs = new Events({
     eventName: 'Cook these amazing dishes',
     location: "125 Ponce City Market",
     date: '2/21/2018',
-    price: 15
+    price: 15,
+    eventImage: 'https://source.unsplash.com/-F_5g8EEHYE/300x300'
 })
 
 const coffee = new Interest({

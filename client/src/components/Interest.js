@@ -1,6 +1,39 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
+import styled from 'styled-components'
+import NavBar from './styled_components/NavBar'
+import Connectr from '../connectr_img.png'
+
+const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    }
+`
+
+
+const RemoveLinkUnderlines = styled.a`
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+`
+
 class Interest extends Component {
 
     state = {
@@ -19,7 +52,8 @@ class Interest extends Component {
                         _id: res.data._id,
                         interestName: res.data.interestName,
                         yearsOfExperience: res.data.yearsOfExperience,
-                        level: res.data.level
+                        level: res.data.level,
+                        interestPhoto: res.data.interestPhoto
                     }
                     const events = res.data.events
                     this.setState({userId, interest, events})
@@ -31,11 +65,18 @@ class Interest extends Component {
     render() {
         return (
             <div>
-            <h1>Interests</h1>
-            <p>{this.state.interest.interestName}</p>
-            <p>{this.state.interest.yearsOfExperience}</p>
-            <p>{this.state.interest.level}</p>
-                Events:
+                <NavBar>
+                    <header>
+                        <Link to="/"><img src={Connectr}/></Link>
+                    </header>
+                </NavBar>
+            <div>
+            <FlexContainer>
+            <h1>{this.state.interest.interestName}</h1>
+            <img src={this.state.interest.interestPhoto}/>
+            <p>Years of Experience: {this.state.interest.yearsOfExperience}</p>
+            <p>Level: {this.state.interest.level}</p>
+            <h3>Events:</h3>
             <p>
                 {this.state.events.map((event, index) => {
                         return (
@@ -43,6 +84,8 @@ class Interest extends Component {
                         )
                     })}
             </p>
+            </FlexContainer>
+            </div>
             </div>
         )
     }
