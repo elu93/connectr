@@ -22,8 +22,7 @@ import {
 class UserProfileUpdate extends Component {
 
     state = {
-        updatedUser: {},
-        redirect: false
+        updatedUser: {}
     }
 
     updateUserAgain = async () => {
@@ -33,10 +32,9 @@ class UserProfileUpdate extends Component {
     render() {
         return (
             <div>
-                {this.state.redirect ? <Redirect to="/user/:userId"></Redirect> :
                     <CardWrapper>
                     <h1>Update User</h1>
-                    <form onSubmit={this.updateUserAgain}>
+                    <form onSubmit={this.props.handleSignUp}>
                         <div>
                             <label htmlFor="userName"></label>
                             <CardInput
@@ -75,7 +73,7 @@ class UserProfileUpdate extends Component {
                         </div>
                         <Button type="submit" value="Edit User"/>
                     </form>
-                    </CardWrapper>}
+                    </CardWrapper>
                 </div>
         )
     }

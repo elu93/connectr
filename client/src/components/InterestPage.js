@@ -77,7 +77,7 @@ class InterestPage extends Component {
             const response = await axios.patch(`/api/users/${this.state.user._id}`, this.state.user)
             const updatedUser = response.data
             console.log(updatedUser)
-            this.setState({updatedUser})
+            this.setState({updatedUser, showUpdatePage: false})
         } catch (error) {
             console.log(error)
         }
@@ -123,8 +123,7 @@ class InterestPage extends Component {
                         <p className="img-block"><img src={this.state.user.photoUrl}/></p>
                         <PaddingLeft>
                             <p>Username: {this.state.user.userName}</p>
-                            <p>Name: {this.state.user.firstName}
-                                {this.state.user.lastName}</p>
+                            <p>Name: {this.state.user.firstName} {this.state.user.lastName}</p>
                             <p>Age: {this.state.user.age}</p>
                             <h3>User Bio:</h3>
                             <button onClick={this.showUpdateComponent}>Click me To update</button>
