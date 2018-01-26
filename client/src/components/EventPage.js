@@ -11,7 +11,8 @@ const FlexContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 50%;
+    width: 50vw;
+    margin: 10vh 25vw;
     border: 1px solid black;
 
     h4 {
@@ -65,15 +66,20 @@ class EventPage extends Component {
 
     render() {
         return(
-            <FlexContainer>
                 <div>
+                    <NavBar>
+                    <header>
+                        <Link to="/"><img src={Connectr}/></Link>
+                    </header>
+                </NavBar>
+                <FlexContainer>
                 <h1>{this.state.event.eventName}</h1>
                 <h3>Address: {this.state.event.location}</h3>
                 <h3>Date: {this.state.event.date}</h3>
-                <h3>Price: {this.state.event.price}</h3>
+                <h3>Price: ${this.state.event.price}</h3>
                 <p><img src={this.state.event.eventImage}/></p>
+                </FlexContainer>
                 </div>
-            </FlexContainer>
         )
     }
 }

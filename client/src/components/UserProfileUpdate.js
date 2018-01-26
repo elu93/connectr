@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom'
 import axios from 'axios'
 import InterestPage from './InterestPage'
 import styled from 'styled-components'
@@ -22,27 +22,28 @@ import {
 class UserProfileUpdate extends Component {
 
     state = {
-        updatedUser: {}
+        updatedUser: {},
+        redirect: false
     }
 
-    updateNewUser = (event) => {
-        event.preventDefault()
-        this.props.updateUser(this.state.updatedUser)
-        console.log(this.state.updatedUser)
+    updateUserAgain = async () => {
+        this.props.handleSignUp()
     }
+
     render() {
         return (
             <div>
+                {this.state.redirect ? <Redirect to="/user/:userId"></Redirect> :
                     <CardWrapper>
                     <h1>Update User</h1>
-                    <form onSubmit={this.props.handleSignUp}>
+                    <form onSubmit={this.updateUserAgain}>
                         <div>
                             <label htmlFor="userName"></label>
                             <CardInput
                                 onChange={this.props.handleChange}
                                 name="userName"
                                 type="text"
-                                value={this.state.userName}
+                                value={this.state.updatedUser.userName}
                                 placeholder="Username"/>
                         </div>
                         <div>
@@ -51,7 +52,7 @@ class UserProfileUpdate extends Component {
                                 onChange={this.props.handleChange}
                                 name="firstName"
                                 type="text"
-                                value={this.state.firstName}
+                                value={this.state.updatedUser.firstName}
                                 placeholder="First Name"/>
                         </div>
                         <div>
@@ -60,7 +61,7 @@ class UserProfileUpdate extends Component {
                                 onChange={this.props.handleChange}
                                 name="lastName"
                                 type="text"
-                                value={this.state.lastName}
+                                value={this.state.updatedUser.lastName}
                                 placeholder="Last Name"/>
                         </div>
                         <div>
@@ -69,12 +70,12 @@ class UserProfileUpdate extends Component {
                                 onChange={this.props.handleChange}
                                 name="age"
                                 type="text"
-                                value={this.state.age}
+                                value={this.state.updatedUser.age}
                                 placeholder="Age"/>
                         </div>
                         <Button type="submit" value="Edit User"/>
                     </form>
-                    </CardWrapper>
+                    </CardWrapper>}
                 </div>
         )
     }

@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import axios from 'axios'
 import UserProfileUpdate from './UserProfileUpdate'
 import styled from 'styled-components'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,8 +22,16 @@ const FlexContainer = styled.div`
     }
 `
 
+const FlexContainerRow = FlexContainer.extend`
+    flex-direction: row;
+    text-align: left;
+`
 
-const RemoveLinkUnderlines = styled.a`
+const PaddingLeft = styled.div`
+    padding: 5%;
+`
+
+const RemoveLinkUnderlines = styled.a `
     a:link {
         text-decoration: none;
         color: black;
@@ -35,18 +43,19 @@ const RemoveLinkUnderlines = styled.a`
     }
 `
 
-
-
 class InterestPage extends Component {
     state = {
         user: {},
-        interests: []
+        interests: [],
+        redirect: false,
+        showUpdatePage: false
     }
 
     componentWillMount() {
         if (this.props.match.params) {
             const {userId} = this.props.match.params
-            axios.get(`/api/users/${userId}`)
+            axios
+                .get(`/api/users/${userId}`)
                 .then(res => {
                     const user = {
                         _id: res.data._id,
@@ -74,8 +83,14 @@ class InterestPage extends Component {
         }
     }
 
+    showUpdateComponent = () => {
+        this.setState({showUpdatePage: true})
+    }
+
     handleChange = (event) => {
-        const updateUser = {...this.state.user}
+        const updateUser = {
+            ...this.state.user
+        }
         updateUser[event.target.name] = event.target.value
         this.setState({user: updateUser})
     }
@@ -96,36 +111,48 @@ class InterestPage extends Component {
                         <Link to="/"><img src={Connectr}/></Link>
                     </header>
                 </NavBar>
+                {this.state.showUpdatePage ?  <UserProfileUpdate
+                    updateUser={this.updateUser}
+                    handleSignUp={this.handleSignUp}
+                    handleChange={this.handleChange}
+                    /> :
                 <FlexContainer>
-                <div>
-                <h1>User Profile</h1>
-                <p className="img-block"><img src={this.state.user.photoUrl}/></p>
-                <div>
-                <p>Usernme: {this.state.user.userName}</p>
-                <p>Name: {this.state.user.firstName} {this.state.user.lastName}</p>
-                <p>Age: {this.state.user.age}</p>
-                <h3>User Bio:</h3>
-                <paragraphContainer>
-                    <h4>{this.state.user.biography}</h4>
-                </paragraphContainer>
-                </div>
-                </div>
-                <div>
-                    <h1>Interests</h1>
-                <p>
-                    {this.state.interests.map((interest, index) => {
-                            return (
-                                <RemoveLinkUnderlines>
-                                    <span>
-                                    <Link to={`/user/${user._id}/interest/${interest._id}`}><img src={interest.interestPhoto}/></Link>
-                                    </span>
-                                </RemoveLinkUnderlines>
-                            )
-                        })}
-                </p>
-                </div>
-                </FlexContainer>
-                <UserProfileUpdate updateUser={this.updateUser} handleSignUp={this.handleSignUp} handleChange={this.handleChange}/>
+                    <div>
+                    <h1>User Profile</h1>
+                    <FlexContainerRow>
+                        <p className="img-block"><img src={this.state.user.photoUrl}/></p>
+                        <PaddingLeft>
+                            <p>Username: {this.state.user.userName}</p>
+                            <p>Name: {this.state.user.firstName}
+                                {this.state.user.lastName}</p>
+                            <p>Age: {this.state.user.age}</p>
+                            <h3>User Bio:</h3>
+                            <button onClick={this.showUpdateComponent}>Click me To update</button>
+                            <paragraphContainer>
+                                <h4>{this.state.user.biography}</h4>
+                            </paragraphContainer>
+                        </PaddingLeft>
+                        </FlexContainerRow>
+                    </div>
+                    
+                    <div>
+                        <h1>Interests</h1>
+                        <p>
+                            {this
+                                .state
+                                .interests
+                                .map((interest, index) => {
+                                    return (
+                                        <RemoveLinkUnderlines>
+                                            <span>
+                                                <Link to={`/user/${user._id}/interest/${interest._id}`}><img src={interest.interestPhoto}/></Link>
+                                            </span>
+                                        </RemoveLinkUnderlines>
+                                    )
+                                })}
+                        </p>
+                    </div>
+                </FlexContainer> }
             </div>
         );
     }
