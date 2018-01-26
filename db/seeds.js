@@ -61,6 +61,7 @@ const elizabeth = new User({
     lastName: 'Nguyen',
     age: 23,
     photoUrl: 'https://picsum.photos/300/300/?random',
+    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
     interests: [coffee, painting, cooking]
 })
 
@@ -70,6 +71,7 @@ const eric = new User({
     lastName: 'Lu',
     age: 24,
     photoUrl: 'https://picsum.photos/300/300/?random',
+    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
     interests: [coffee, painting, cooking]
 })
 
@@ -79,6 +81,7 @@ const winnie = new User({
     lastName: 'Law',
     age: 23,
     photoUrl: 'https://picsum.photos/300/300/?random',
+    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
     interests: [coffee, painting, cooking]
 })
 
@@ -88,6 +91,7 @@ const phil = new User({
     lastName: 'Lu',
     age: 28,
     photoUrl: 'https://picsum.photos/300/300/?random',
+    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
     interests: [coffee, painting, cooking]
 })
 

@@ -41,7 +41,7 @@ class HomePage extends Component {
             <div>
             <NavBar>
             <header>
-                <img src={Connectr}/>
+                <Link to="/"><img src={Connectr}/></Link>
             </header>
             </NavBar>
             <LandingPage>

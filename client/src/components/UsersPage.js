@@ -18,17 +18,28 @@ import {
     CardOptionsItem,
     CardButton,
     CardLink
-    } from "./styled_components/Card";
+} from "./styled_components/Card";
 
-const UserShowPage = styled.div`
+const RedButton = CardButton.extend`
+    background-color: #ff0000;
+    width: 30%;
+`
+
+const UserShowPage = styled.div `
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
 
     h1 {
         margin: 0;
         vertical-align: middle;
     }
+`
+
+const HeaderCenter = styled.h1`
+    text-align: center;
 `
 
 class UsersPage extends Component {
@@ -61,7 +72,10 @@ class UsersPage extends Component {
     deleteUser = async(user) => {
         try {
             await axios.delete(`/api/users/${user._id}`)
-            const indexToDelete = this.state.users.indexOf(user)
+            const indexToDelete = this
+                .state
+                .users
+                .indexOf(user)
             const newUsers = [...this.state.users]
             newUsers.splice(indexToDelete, 1)
             this.setState({users: newUsers})
@@ -86,71 +100,82 @@ class UsersPage extends Component {
 
     render() {
         return (
-            <UserShowPage>
-                <div>
+            <div>
                 <NavBar>
-            <header>
-                <img src={Connectr}/>
-            </header>
-            </NavBar>
-                <h1>Users</h1>
-                <h3>Selection of Users</h3>
-                <p>
-                    {this.state.users.map((user, index) => {
-                            return (
-                                <div>
-                                    <Link to={`/user/${user._id}`}><img src={user.photoUrl} alt={user.userName}/></Link>
-                                    <p>{user.userName}</p>
-                                    <input type="submit" value="Delete User" onClick={() => {this.deleteUser(user)}}></input>
-                                </div>    
-                            )
-                        })}
-                </p>
-
+                    <header>
+                        <Link to="/"><img src={Connectr}/></Link>
+                    </header>
+                </NavBar>
                 <div>
-                    
-                    <CardWrapper>
-                    <h1>New User</h1>
-                    <br/>
-                    <form onSubmit={this.handleSignUp}>
-                        <div>
-                            <label htmlFor="userName">User Name</label>
-                            <CardInput
-                                onChange={this.handleChange}
-                                name="userName"
-                                type="text"
-                                value={this.state.userName}/>
-                        </div>
-                        <div>
-                            <label htmlFor="firstName">First Name</label>
-                            <CardInput
-                                onChange={this.handleChange}
-                                name="firstName"
-                                type="text"
-                                value={this.state.firstName}/>
-                        </div>
-                        <div>
-                            <label htmlFor="lastName">Last Name</label>
-                            <CardInput
-                                onChange={this.handleChange}
-                                name="lastName"
-                                type="text"
-                                value={this.state.lastName}/>
-                        </div>
-                        <div>
-                            <label htmlFor="age">Age</label>
-                            <CardInput
-                                onChange={this.handleChange}
-                                name="age"
-                                type="text"
-                                value={this.state.age}/>
-                        </div>
-                        <input type="submit" value="New User"/>
-                    </form>
-                    </CardWrapper>
+                    <UserShowPage>
+                        <p>
+                            {this
+                                .state
+                                .users
+                                .map((user, index) => {
+                                    return (
+                                        <div>
+                                            <HeaderCenter>{user.userName}</HeaderCenter>
+                                            <Link to={`/user/${user._id}`}><img src={user.photoUrl} alt={user.userName}/></Link>
+                                            <br />
+                                            <RedButton
+                                                type="submit"
+                                                value="Delete User"
+                                                onClick={() => {
+                                                this.deleteUser(user)
+                                            }}>Delete User</RedButton>
+                                            <p></p>
+                                        </div>
+                                    )
+                                })}
+                        </p>
+
+                    </UserShowPage>
+                    <div>
+                        <CardWrapper>
+                            <h1>New User</h1>
+                            <br/>
+                            <form onSubmit={this.handleSignUp}>
+                                <div>
+                                    <label htmlFor="userName">User Name</label>
+                                    <CardInput
+                                        onChange={this.handleChange}
+                                        name="userName"
+                                        type="text"
+                                        value={this.state.userName}/>
+                                </div>
+                                <div>
+                                    <label htmlFor="firstName">First Name</label>
+                                    <CardInput
+                                        onChange={this.handleChange}
+                                        name="firstName"
+                                        type="text"
+                                        value={this.state.firstName}/>
+                                </div>
+                                <div>
+                                    <label htmlFor="lastName">Last Name</label>
+                                    <CardInput
+                                        onChange={this.handleChange}
+                                        name="lastName"
+                                        type="text"
+                                        value={this.state.lastName}/>
+                                </div>
+                                <div>
+                                    <label htmlFor="age">Age</label>
+                                    <CardInput
+                                        onChange={this.handleChange}
+                                        name="age"
+                                        type="text"
+                                        value={this.state.age}/>
+                                </div>
+                                <br/>
+                                <CardButton type="submit">Submit</CardButton>
+                            </form>
+                        </CardWrapper>
+                    </div>
                 </div>
             </div>
-            </UserShowPage>
+
         )
     }
 }

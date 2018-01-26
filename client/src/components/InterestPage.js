@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import axios from 'axios'
 import UserProfileUpdate from './UserProfileUpdate'
 import styled from 'styled-components'
+import NavBar from './styled_components/NavBar'
+import Connectr from '../connectr_img.png'
 
 const FlexContainer = styled.div`
     display: flex;
@@ -10,6 +12,18 @@ const FlexContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    h4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    }
+`
+
+const paragraphContainer = styled.h4`
+    
 `
 
 const RemoveLinkUnderlines = styled.a`
@@ -43,7 +57,8 @@ class InterestPage extends Component {
                         firstName: res.data.firstName,
                         lastName: res.data.lastName,
                         age: res.data.age,
-                        photoUrl: res.data.photoUrl
+                        photoUrl: res.data.photoUrl,
+                        biography: res.data.biography
                     }
                     const interests = res.data.interests
                     this.setState({user, interests})
@@ -79,6 +94,11 @@ class InterestPage extends Component {
         console.log(user)
         return (
             <div>
+                <NavBar>
+                    <header>
+                        <Link to="/"><img src={Connectr}/></Link>
+                    </header>
+                </NavBar>
                 <FlexContainer>
                 <div>
                 <h1>User Profile</h1>
@@ -87,9 +107,12 @@ class InterestPage extends Component {
                 <p>Usernme: {this.state.user.userName}</p>
                 <p>Name: {this.state.user.firstName} {this.state.user.lastName}</p>
                 <p>Age: {this.state.user.age}</p>
+                <h3>User Bio:</h3>
+                <paragraphContainer>
+                    <h4>{this.state.user.biography}</h4>
+                </paragraphContainer>
                 </div>
                 </div>
-                </FlexContainer>
                 <div>
                     Interests:
                 <p>
@@ -104,7 +127,7 @@ class InterestPage extends Component {
                         })}
                 </p>
                 </div>
-                <Link to="/">Back to Home</Link>< br /> 
+                </FlexContainer>
                 <UserProfileUpdate updateUser={this.updateUser} handleSignUp={this.handleSignUp} handleChange={this.handleChange}/>
             </div>
         );
