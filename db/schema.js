@@ -70,7 +70,7 @@ const UserSchema = new Schema({
     },
     photoUrl: {
         type: String,
-        default: 'https://picsum.photos/200/300/?random'
+        default: 'https://picsum.photos/300/300/?random'
     },
     biography: {
         type: String,
