@@ -47,7 +47,6 @@ class InterestPage extends Component {
     state = {
         user: {},
         interests: [],
-        redirect: false,
         showUpdatePage: false
     }
 

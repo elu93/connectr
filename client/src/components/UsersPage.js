@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'
 import AddNewUser from './AddNewUser'
+import RegButton from './styled_components/RegButton'
 import {
     CardWrapper,
     CardHeader,
@@ -21,8 +22,15 @@ import {
     CardLink
 } from "./styled_components/Card";
 
-const RedButton = CardButton.extend`
+const RedButton = RegButton.extend`
     background-color: #ff0000;
+    width: 30%;
+    color: white;
+    border: 1px solid black;
+`
+const AddUserButton = CardButton.extend`
+    margin: 10%;
+    background-color: #5bf759;
     width: 30%;
 `
 
@@ -129,8 +137,8 @@ class UsersPage extends Component {
                     handleChange={this.handleChange}
                     /> :
                     <div>
-                        <button onClick={this.showNewFormCompoent}>Add New User</button>
                         <UserShowPage>
+                        <AddUserButton onClick={this.showNewFormCompoent}>Add New User</AddUserButton>
                         <DisplayFlex>
                             {this
                                 .state
