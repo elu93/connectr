@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Link} from 'react-router-dom'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'
-import RegButton from './styled_components/RegButton'
 
 const LandingPage = styled.div`
     width: 100vw;

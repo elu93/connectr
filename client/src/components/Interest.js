@@ -21,19 +21,6 @@ const FlexContainer = styled.div`
     }
 `
 
-
-const RemoveLinkUnderlines = styled.a`
-    a:link {
-        text-decoration: none;
-        color: black;
-    }
-
-    a:visited {
-        text-decoration: none;
-        color: black;
-    }
-`
-
 class Interest extends Component {
 
     state = {

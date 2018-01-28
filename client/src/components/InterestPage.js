@@ -172,9 +172,9 @@ class InterestPage extends Component {
                             <p>Age: {this.state.user.age}</p>
                             <h3>User Bio:</h3>
                             <button onClick={this.showUpdateComponent}>Update User</button>
-                            <paragraphContainer>
+                            <div>
                                 <h4>{this.state.user.biography}</h4>
-                            </paragraphContainer>
+                            </div>
                         </PaddingLeft>
                         </FlexContainerRow>
                     </div>

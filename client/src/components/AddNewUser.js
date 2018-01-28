@@ -1,9 +1,4 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom'
-import axios from 'axios'
-import InterestPage from './InterestPage'
-import styled from 'styled-components'
-import Button from './styled_components/Button'
 import {
     CardWrapper,
     CardHeader,

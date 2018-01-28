@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Link} from 'react-router-dom'
 import axios from 'axios'
-import InterestPage from './InterestPage'
 import styled from 'styled-components'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'

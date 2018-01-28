@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
-import styled from 'styled-components'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import UsersPage from './components/UsersPage'
 import InterestPage from './components/InterestPage'
 import Interest from './components/Interest'
 import Events from './components/EventPage'
-import UserProfileUpdate from './components/UserProfileUpdate'
 import HomePage from './components/HomePage'
 
 class App extends Component {
