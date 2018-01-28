@@ -3,13 +3,20 @@ import styled from 'styled-components'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'
+import RegButton from './styled_components/RegButton'
 
 const LandingPage = styled.div`
     width: 100vw;
     height: 100vh;
-    background: #FF5F6D;
+    background-image: url('https://source.unsplash.com/3BK_DyRVf90');
+    opacity: 0.9;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    /* background: #FF5F6D;
     background: -webkit-linear-gradient(to top, #FFC371, #FF5F6D);
-    background: linear-gradient(to top, #FFC371, #FF5F6D);
+    background: linear-gradient(to top, #FFC371, #FF5F6D); */
 
     div {
         text-align: center;

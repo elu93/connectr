@@ -43,6 +43,10 @@ const RemoveLinkUnderlines = styled.a `
     }
 `
 
+const ImagePadding = styled.img`
+    padding: 10px;
+`
+
 class InterestPage extends Component {
     state = {
         user: {},
@@ -143,7 +147,7 @@ class InterestPage extends Component {
                                     return (
                                         <RemoveLinkUnderlines>
                                             <span>
-                                                <Link to={`/user/${user._id}/interest/${interest._id}`}><img src={interest.interestPhoto}/></Link>
+                                                <Link to={`/user/${user._id}/interest/${interest._id}`}><ImagePadding src={interest.interestPhoto}/></Link>
                                             </span>
                                         </RemoveLinkUnderlines>
                                     )
