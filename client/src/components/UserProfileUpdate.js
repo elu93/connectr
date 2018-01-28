@@ -71,6 +71,24 @@ class UserProfileUpdate extends Component {
                                 value={this.state.updatedUser.age}
                                 placeholder="Age"/>
                         </div>
+                        <div>
+                            <label htmlFor="photoImage"></label>
+                            <CardInput
+                                onChange={this.props.handleChange}
+                                name="photoImage"
+                                type="text"
+                                value={this.state.updatedUser.photoImage}
+                                placeholder="Photo Avatar"/>
+                        </div>
+                        <div>
+                            <label htmlFor="biography"></label>
+                            <CardInput
+                                onChange={this.props.handleChange}
+                                name="biography"
+                                type="text"
+                                value={this.state.updatedUser.biography}
+                                placeholder="Biography"/>
+                        </div>
                         <Button type="submit" value="Edit User"/>
                     </form>
                     </CardWrapper>

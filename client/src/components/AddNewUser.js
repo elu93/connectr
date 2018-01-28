@@ -64,6 +64,22 @@ class AddNewUser extends Component {
                                         type="text"
                                         value={this.state.age}/>
                                 </div>
+                                <div>
+                                    <label htmlFor="photoUrl">Photo Avatar</label>
+                                    <CardInput
+                                        onChange={this.props.handleChange}
+                                        name="photoUrl"
+                                        type="text"
+                                        value={this.state.photoUrl}/>
+                                </div>
+                                <div>
+                                    <label htmlFor="biography">Biography</label>
+                                    <CardInput
+                                        onChange={this.props.handleChange}
+                                        name="biography"
+                                        type="text"
+                                        value={this.state.biography}/>
+                                </div>
                                 <br/>
                                 <CardButton type="submit">Submit</CardButton>
                             </form>
