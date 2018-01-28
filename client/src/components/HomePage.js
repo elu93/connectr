@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {BrowserRouter as Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'
+import RegButton from './styled_components/RegButton'
 
 const LandingPage = styled.div`
     width: 100vw;
@@ -38,7 +39,6 @@ const LandingPage = styled.div`
         text-decoration: none;
         color: white;
     }
-
 `
 
 class HomePage extends Component {
@@ -52,7 +52,7 @@ class HomePage extends Component {
             </NavBar>
             <LandingPage>
                 <div>
-                <Link to='/login'> Connectr </Link>
+                <Link to='/login'>Connectr </Link>
                 </div>
             </LandingPage>
             </div>

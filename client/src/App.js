@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import styled from 'styled-components'
 import UsersPage from './components/UsersPage'
 import InterestPage from './components/InterestPage'
 import Interest from './components/Interest'

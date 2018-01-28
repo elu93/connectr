@@ -55,8 +55,12 @@ const PaddingLeft = styled.div`
     padding: 5%;
 `
 
+const PaddingInterests = styled.div`
+    padding: 2%;
+`
+
 const ImagePadding = styled.img`
-    padding: 10px;
+    padding: 1%;
 `
 
 class InterestPage extends Component {
@@ -186,13 +190,13 @@ class InterestPage extends Component {
                     <div>
                         <h1>Interests</h1>
                         <button onClick={this.showAddInterestComponent}>Add New Interest</button>
-                        <div>
+                        <FlexPictures>
                             {this
                                 .state
                                 .interests
                                 .map((interest, index) => {
                                     return (
-                                            <div>
+                                            <PaddingInterests>
                                                 <Link to={`/user/${user._id}/interest/${interest._id}`}> 
                                                 <figure className="imghvr-fade">
                                                 <img src={interest.interestPhoto}/>
@@ -201,10 +205,10 @@ class InterestPage extends Component {
                                                 </figcaption>
                                                 </figure>        
                                                 </Link>
-                                            </div>
+                                            </PaddingInterests>
                                     )
                                 })}
-                        </div>
+                        </FlexPictures>
                     </div>}
                 </FlexContainer> }
             </div>
