@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../db/models/User')
+const Interest = require('../db/models/Interest')
 const router = express.Router()
 
 router.get('/', (req, res) => {
@@ -29,6 +30,21 @@ router.get('/:userId', (req, res) => {
             res.json(user)
         }).catch((error) => 
             console.log(error))
+})
+
+router.post('/:userId', (req, res) => {
+    const userId = req.params.userId
+    const newInterest = req.body
+    console.log(req.body)
+    User.findById(userId)
+    .then((user) => {
+        user.interests.push(newInterest)
+        return user.save()
+    })
+    .then((interest) => {
+        res.json(interest)
+    })
+    .catch((error) => console.log(error))
 })
 
 router.delete('/:userId', async(req, res) => {

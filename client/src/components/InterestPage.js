@@ -5,6 +5,21 @@ import UserProfileUpdate from './UserProfileUpdate'
 import styled from 'styled-components'
 import NavBar from './styled_components/NavBar'
 import Connectr from '../connectr_img.png'
+import {
+    CardWrapper,
+    CardHeader,
+    CardHeading,
+    CardBody,
+    CardFieldset,
+    CardInput,
+    CardIcon,
+    CardOptionsNote,
+    CardOptions,
+    CardOptionsItem,
+    CardButton,
+    CardLink
+    } from "./styled_components/Card";
+import AddNewInterest from './AddNewInterest';
 
 const FlexContainer = styled.div `
     display: flex;
@@ -27,20 +42,17 @@ const FlexContainerRow = FlexContainer.extend`
     text-align: left;
 `
 
-const PaddingLeft = styled.div`
-    padding: 5%;
+const FlexPictures = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    
 `
 
-const RemoveLinkUnderlines = styled.a `
-    a:link {
-        text-decoration: none;
-        color: black;
-    }
-
-    a:visited {
-        text-decoration: none;
-        color: black;
-    }
+const PaddingLeft = styled.div`
+    padding: 5%;
 `
 
 const ImagePadding = styled.img`
@@ -51,7 +63,9 @@ class InterestPage extends Component {
     state = {
         user: {},
         interests: [],
-        showUpdatePage: false
+        newInterest: {},
+        showUpdatePage: false,
+        showAddInterestPage: false
     }
 
     componentWillMount() {
@@ -67,7 +81,8 @@ class InterestPage extends Component {
                         lastName: res.data.lastName,
                         age: res.data.age,
                         photoUrl: res.data.photoUrl,
-                        biography: res.data.biography
+                        biography: res.data.biography,
+                        interests: res.data.interests
                     }
                     const interests = res.data.interests
                     this.setState({user, interests})
@@ -104,9 +119,36 @@ class InterestPage extends Component {
         this.updateUser()
     }
 
+    addInterest = async() => {
+        const response = await axios.post(`/api/users/${this.state.user._id}/interest`, this.state.newInterest)
+        const newInterest = response.data.interests
+        console.log(newInterest)
+        const newInterests = [...this.state.interests]
+        newInterests.unshift(newInterest)
+        this.setState({interests: newInterests, showAddInterestPage: false})
+    }
+
+    handleInterestAdd = (event) => {
+        this.addInterest()
+    }
+
+    handleInterestChange = (event) => {
+        const newInterest = {
+            ...this.state.newInterest
+        }
+        newInterest[event.target.name] = event.target.value
+        this.setState({newInterest})
+    }
+
+    showAddInterestComponent = () => {
+        this.setState({showAddInterestPage: true})
+    }
+
     render() {
         const user = this.state.user
         console.log(user)
+        const interests = this.state.interests
+        console.log(interests)
         return (
             <div>
                 <NavBar>
@@ -136,24 +178,27 @@ class InterestPage extends Component {
                         </PaddingLeft>
                         </FlexContainerRow>
                     </div>
-                    
+                    {this.state.showAddInterestPage ? <AddNewInterest
+                    addInterest={this.addInterest}
+                    handleInterestAdd={this.handleInterestAdd}
+                    handleInterestChange={this.handleInterestChange}
+                    /> :
                     <div>
                         <h1>Interests</h1>
-                        <p>
+                        <button onClick={this.showAddInterestComponent}>Add New Interest</button>
+                        <div>
                             {this
                                 .state
                                 .interests
                                 .map((interest, index) => {
                                     return (
-                                        <RemoveLinkUnderlines>
-                                            <span>
-                                                <Link to={`/user/${user._id}/interest/${interest._id}`}><ImagePadding src={interest.interestPhoto}/></Link>
-                                            </span>
-                                        </RemoveLinkUnderlines>
+                                            <div>
+                                                <Link to={`/user/${user._id}/interest/${interest._id}`}><img src={interest.interestPhoto}/></Link>
+                                            </div>
                                     )
                                 })}
-                        </p>
-                    </div>
+                        </div>
+                    </div>}
                 </FlexContainer> }
             </div>
         );

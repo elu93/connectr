@@ -14,5 +14,20 @@ router.get('/:interestId', (req, res) => {
             console.log(error))
 })
 
+router.post('/', (req, res) => {
+    const userId = req.params.userId
+    const newInterest = req.body
+    console.log(req.body)
+    User.findById(userId)
+    .then((user) => {
+        user.interests.push(newInterest)
+        return user.save()
+    })
+    .then((interest) => {
+        res.json(interest)
+    })
+    .catch((error) => console.log(error))
+})
+
 
 module.exports = router

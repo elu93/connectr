@@ -30,7 +30,7 @@ const EventSchema = new Schema({
 const InterestSchema = new Schema({
     interestName: {
         type: String,
-        required: true
+        required: false
     },
     yearsOfExperience: {
         type: Number,
@@ -44,7 +44,7 @@ const InterestSchema = new Schema({
     },
     interestPhoto: {
         type: String,
-        required: true
+        required: false
     },
     events: [EventSchema]
 }, {
