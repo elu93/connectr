@@ -193,7 +193,14 @@ class InterestPage extends Component {
                                 .map((interest, index) => {
                                     return (
                                             <div>
-                                                <Link to={`/user/${user._id}/interest/${interest._id}`}><img src={interest.interestPhoto}/></Link>
+                                                <Link to={`/user/${user._id}/interest/${interest._id}`}> 
+                                                <figure className="imghvr-fade">
+                                                <img src={interest.interestPhoto}/>
+                                                <figcaption>
+                                                    {interest.interestName}
+                                                </figcaption>
+                                                </figure>        
+                                                </Link>
                                             </div>
                                     )
                                 })}
