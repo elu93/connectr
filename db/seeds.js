@@ -62,42 +62,42 @@ const cooking = new Interest({
 
 
 const elizabeth = new User({
-    userName: 'lizzo_win',
-    firstName: 'Elizabeth',
-    lastName: 'Nguyen',
-    age: 23,
-    photoUrl: 'https://picsum.photos/300/300/?random',
-    biography: 'I am 23 years old and I love 3 things in this world: coffee, painting, and cooking. I love meeting new people and teaching others. Feel free to reach out to me!',
+    userName: 'jane_doe',
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 25,
+    photoUrl: 'https://source.unsplash.com/Q_MYbs7KdcU/300x300',
+    biography: 'I am 25 years old and I love 3 things in this world: coffee, painting, and cooking. I love meeting new people and teaching others. Feel free to reach out to me!',
     interests: [coffee, painting, cooking]
 })
 
 const eric = new User({
-    userName: 'e.lu',
-    firstName: 'Eric',
-    lastName: 'Lu',
-    age: 24,
-    photoUrl: 'https://picsum.photos/300/300/?random',
-    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
+    userName: 'john_doe',
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    photoUrl: 'https://source.unsplash.com/Pf5Pj7A5ddA/300x300',
+    biography: 'I am 25 years old and I love 3 things in this world: coffee, painting, and cooking. I love meeting new people and teaching others. Feel free to reach out to me!',
     interests: [coffee, painting, cooking]
 })
 
 const winnie = new User({
-    userName: 'winnie_lawl',
-    firstName: 'Winnie',
-    lastName: 'Law',
-    age: 23,
-    photoUrl: 'https://picsum.photos/300/300/?random',
-    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
+    userName: 'christy_dawson',
+    firstName: 'Christy',
+    lastName: 'Dawson',
+    age: 25,
+    photoUrl: 'https://source.unsplash.com/ilpMdrM5L3E/300x300',
+    biography: 'I am 25 years old and I love 3 things in this world: coffee, painting, and cooking. I love meeting new people and teaching others. Feel free to reach out to me!',
     interests: [coffee, painting, cooking]
 })
 
 const phil = new User({
-    userName: 'p_89',
-    firstName: 'Phil',
-    lastName: 'Lu',
-    age: 28,
-    photoUrl: 'https://picsum.photos/300/300/?random',
-    biography: 'Bacon ipsum dolor amet tenderloin pastrami pork belly, shankle frankfurter bacon beef leberkas sirloin capicola. Cupim tail pork chop, burgdoggen t-bone shoulder kevin turkey pig pork brisket. Shankle burgdoggen short ribs beef ribs shank, meatball bacon picanha ribeye. Chuck meatloaf tail bacon ham hock hamburger picanha alcatra burgdoggen beef bresaola doner shank. Biltong meatloaf landjaeger flank salami. Prosciutto tri-tip pig fatback, ribeye hamburger venison turkey chicken picanha',
+    userName: 'bob_ablaw',
+    firstName: 'Bob',
+    lastName: 'Law',
+    age: 25,
+    photoUrl: 'https://source.unsplash.com/_VsGVlCzEtU/300x300',
+    biography: 'I am 25 years old and I love 3 things in this world: coffee, painting, and cooking. I love meeting new people and teaching others. Feel free to reach out to me!',
     interests: [coffee, painting, cooking]
 })
 

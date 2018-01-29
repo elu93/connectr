@@ -46,6 +46,15 @@ const FlexContainerRow = FlexContainer.extend`
     text-align: left;
 `
 
+const Button = styled.button`
+    color: #4ee85e;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid #4ee85e;
+    border-radius: 3px;
+`;
+
 const FlexPictures = styled.div`
     display: flex;
     flex-direction: row;
@@ -53,6 +62,10 @@ const FlexPictures = styled.div`
     justify-content: space-around;
     margin: 0 auto;
     
+`
+
+const UpdateUserButton = CardButton.extend`
+    width: 25%;
 `
 
 const PaddingLeft = styled.div`
@@ -179,7 +192,7 @@ class InterestPage extends Component {
                             <p>Name: {this.state.user.firstName} {this.state.user.lastName}</p>
                             <p>Age: {this.state.user.age}</p>
                             <h3>User Bio:</h3>
-                            <button onClick={this.showUpdateComponent}>Update User</button>
+                            <UpdateUserButton onClick={this.showUpdateComponent}>Update User</UpdateUserButton>
                             <div>
                                 <h4>{this.state.user.biography}</h4>
                             </div>
@@ -193,7 +206,7 @@ class InterestPage extends Component {
                     /> :
                     <div>
                         <h1>Interests</h1>
-                        <button onClick={this.showAddInterestComponent}>Add New Interest</button>
+                        <Button onClick={this.showAddInterestComponent}>Add New Interest</Button>
                         <FlexPictures>
                             {this
                                 .state

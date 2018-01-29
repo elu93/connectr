@@ -51,7 +51,7 @@ export const CardInput = styled.input `
   border-left: 0;
   transition: border-bottom-color .25s ease-in;
   &:focus {
-    border-bottom-color: #e5195f;
+    border-bottom-color: #4ee85e;
     outline: 0;
   }
 `;
@@ -96,7 +96,7 @@ export const CardButton = styled.button `
   font-size: 14px;
   font-weight: 700;
   color: #fff;
-  background-color: #e5195f;
+  background-color: #4ee85e;
   border: 0;
   border-radius: 35px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, .08);
