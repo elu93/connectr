@@ -28,52 +28,52 @@ class AddNewUser extends Component {
                             <br/>
                             <form onSubmit={this.props.handleSignUp}>
                                 <div>
-                                    <label htmlFor="userName">User Name</label>
                                     <CardInput
                                         onChange={this.props.handleChange}
                                         name="userName"
                                         type="text"
-                                        value={this.state.userName}/>
+                                        value={this.state.userName}
+                                        placeholder="Username"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="firstName">First Name</label>
                                     <CardInput
                                         onChange={this.props.handleChange}
                                         name="firstName"
                                         type="text"
-                                        value={this.state.firstName}/>
+                                        value={this.state.firstName}
+                                        placeholder="First Name"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="lastName">Last Name</label>
                                     <CardInput
                                         onChange={this.props.handleChange}
                                         name="lastName"
                                         type="text"
-                                        value={this.state.lastName}/>
+                                        value={this.state.lastName}
+                                        placeholder="Last Name"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="age">Age</label>
                                     <CardInput
                                         onChange={this.props.handleChange}
                                         name="age"
                                         type="text"
-                                        value={this.state.age}/>
+                                        value={this.state.age}
+                                        placeholder="Age"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="photoUrl">Photo Avatar</label>
                                     <CardInput
                                         onChange={this.props.handleChange}
                                         name="photoUrl"
                                         type="text"
-                                        value={this.state.photoUrl}/>
+                                        value={this.state.photoUrl}
+                                        placeholder="Photo Avatar"/>
                                 </div>
                                 <div>
-                                    <label htmlFor="biography">Biography</label>
                                     <CardInput
                                         onChange={this.props.handleChange}
                                         name="biography"
                                         type="text"
-                                        value={this.state.biography}/>
+                                        value={this.state.biography}
+                                        placeholder="Biography"/>
                                 </div>
                                 <br/>
                                 <CardButton type="submit">Submit</CardButton>
