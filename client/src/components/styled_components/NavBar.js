@@ -11,6 +11,7 @@ const NavBar = styled.header`
         color: white;
         margin: 0;
     }
+
     p {
         display: inline-block;
         color: white;

@@ -34,6 +34,10 @@ const AddUserButton = CardButton.extend`
     width: 30%;
 `
 
+const QuoteButton = AddUserButton.extend`
+    background-color: #fff600;
+`
+
 const UserShowPage = styled.div `
     display: flex;
     flex-direction: row;
@@ -48,6 +52,10 @@ const UserShowPage = styled.div `
         vertical-align: middle;
     }
 
+`
+
+const RedTrash = styled.i`
+    color: red;
 `
 
 const DisplayFlex = styled.p`
@@ -76,6 +84,7 @@ class UsersPage extends Component {
     state = {
         users: [],
         newUser: {},
+        quote: {},
         showNewPage: false
     }
 
@@ -89,6 +98,15 @@ class UsersPage extends Component {
             .catch((error) => {
                 console.error("NEW ERROR", error)
             })
+
+            axios.get('https://favqs.com/api/qotd')
+            .then(res => {
+                const quote = res.data.quote
+                this.setState({quote})
+            })
+            .catch((error) => {
+                console.log('New error', error)
+            })
     }
 
     createUser = async() => {
@@ -97,6 +115,13 @@ class UsersPage extends Component {
         const newUsers = [...this.state.users]
         newUsers.unshift(newUser)
         this.setState({users: newUsers, showNewPage: false})
+    }
+
+    getQuoteOfDay = async() => {
+        const response = await axios.get('https://favqs.com/api/qotd')
+        const newQuote = response.data.quote
+        const quote = {...this.state.quote}
+        this.setState({quote: newQuote})
     }
 
     deleteUser = async(user) => {
@@ -133,6 +158,7 @@ class UsersPage extends Component {
     }
 
     render() {
+        console.log(this.state.quote)
         return (
             <div>
                 <NavBar>
@@ -148,29 +174,29 @@ class UsersPage extends Component {
                     <div>
                         <UserShowPage>
                         <AddUserButton onClick={this.showNewFormCompoent}>Add New User</AddUserButton>
+                        <QuoteButton onClick={this.getQuoteOfDay}>Get New Quote</QuoteButton>
+                        <div>
+                        <p>{this.state.quote.body}</p>
+                        <p> --{this.state.quote.author}</p>
+                        </div>
                         <DisplayFlex>
                             {this
                                 .state
                                 .users
                                 .map((user, index) => {
                                     return (
-                                        <ElementPadding>
-                                            <HeaderCenter>{user.userName}</HeaderCenter>
+                                        <ElementPadding key={user._id}>
+                                            <HeaderCenter>{user.userName} <RedTrash type="submit" onClick={() => this.deleteUser(user)} className="fa fa-trash" aria-hidden="true"></RedTrash></HeaderCenter>
                                             <Link to={`/user/${user._id}`}><img src={user.photoUrl} alt={user.userName}/></Link>
-                                            <br />
-                                            <RedButton
-                                                type="submit"
-                                                value="Delete User"
-                                                onClick={() => {
-                                                this.deleteUser(user)
-                                            }}>Delete User</RedButton>
-                                            <p></p>
                                         </ElementPadding>
                                     )
                                 })}
                         </DisplayFlex>
                         </UserShowPage>
                     </div> }
+                    <NavBar>
+                        <p>Made by Eric Lu @ 2018</p>
+                    </NavBar>
             </div>
         )
     }

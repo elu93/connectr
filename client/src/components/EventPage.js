@@ -84,6 +84,9 @@ class EventPage extends Component {
                 <h3>Price: ${this.state.event.price}</h3>
                 <p><img src={this.state.event.eventImage}/></p>
                 </FlexContainer>
+                <NavBar>
+                    <p>Made by Eric Lu @ 2018</p>
+                </NavBar>
                 </div>
         )
     }

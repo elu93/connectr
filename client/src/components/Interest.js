@@ -21,6 +21,10 @@ const FlexContainer = styled.div`
     }
 `
 
+const InterestEvents = styled.p`
+    margin-bottom: 5%;
+`
+
 class Interest extends Component {
 
     state = {
@@ -64,15 +68,18 @@ class Interest extends Component {
             <p>Years of Experience: {this.state.interest.yearsOfExperience}</p>
             <p>Level: {this.state.interest.level}</p>
             <h3>Events:</h3>
-            <p>
+            <InterestEvents>
                 {this.state.events.map((event, index) => {
                         return (
                             <Link to={`/user/${this.state.userId}/interest/${this.state.interest._id}/event/${event._id}`}> {event.eventName} </Link>
                         )
                     })}
-            </p>
+            </InterestEvents>
             </FlexContainer>
             </div>
+            <NavBar>
+                    <p>Made by Eric Lu @ 2018</p>
+                </NavBar>
             </div>
         )
     }

@@ -55,6 +55,9 @@ class HomePage extends Component {
                 <Link to='/login'>Connectr </Link>
                 </div>
             </LandingPage>
+            <NavBar>
+                    <p>Made by Eric Lu @ 2018</p>
+                </NavBar>
             </div>
         )
     }

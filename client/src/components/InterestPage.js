@@ -74,6 +74,7 @@ const PaddingLeft = styled.div`
 
 const PaddingInterests = styled.div`
     padding: 2%;
+    margin-bottom: 10%;
 `
 
 const ImagePadding = styled.img`
@@ -192,7 +193,7 @@ class InterestPage extends Component {
                             <p>Name: {this.state.user.firstName} {this.state.user.lastName}</p>
                             <p>Age: {this.state.user.age}</p>
                             <h3>User Bio:</h3>
-                            <UpdateUserButton onClick={this.showUpdateComponent}>Update User</UpdateUserButton>
+                            <Button onClick={this.showUpdateComponent}>Update User</Button>
                             <div>
                                 <h4>{this.state.user.biography}</h4>
                             </div>
@@ -228,6 +229,9 @@ class InterestPage extends Component {
                         </FlexPictures>
                     </div>}
                 </FlexContainer> }
+                <NavBar>
+                    <p>Made by Eric Lu @ 2018</p>
+                </NavBar>
             </div>
         );
     }
