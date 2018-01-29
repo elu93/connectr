@@ -35,6 +35,10 @@ const FlexContainer = styled.div `
     align-items: center;
     width: 30vw;
     }
+
+    @media only screen and (max-width: 600px) {
+        font-size: .75em;
+    }
 `
 
 const FlexContainerRow = FlexContainer.extend`

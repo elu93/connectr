@@ -12,7 +12,7 @@ const FlexContainer = styled.div`
     align-items: center;
     text-align: center;
     width: 50vw;
-    margin: 10vh 25vw;
+    margin: 10vh auto;
     border: 1px solid black;
 
     h4 {
@@ -22,6 +22,11 @@ const FlexContainer = styled.div`
     align-items: center;
     width: 30vw;
     }
+
+    @media only screen and (max-width: 625px) {
+        width: 100vw;
+    }
+
 `
 
 

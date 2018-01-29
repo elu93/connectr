@@ -47,11 +47,20 @@ const UserShowPage = styled.div `
         margin: 0;
         vertical-align: middle;
     }
+
 `
 
 const DisplayFlex = styled.p`
     display: flex;
     flex-wrap: wrap;
+
+    @media only screen and (max-width: 1439px) and (min-width: 730px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 25vw;
+        width: 50vw;
+    }
 `
 
 const HeaderCenter = styled.h1`
