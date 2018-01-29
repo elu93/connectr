@@ -54,6 +54,10 @@ const UserShowPage = styled.div `
 
 `
 
+const ItalicQuote = styled.p`
+    font-style: italic;
+`
+
 const RedTrash = styled.i`
     color: red;
 `
@@ -177,7 +181,7 @@ class UsersPage extends Component {
                         <QuoteButton onClick={this.getQuoteOfDay}>Get New Quote</QuoteButton>
                         <div>
                         <p>{this.state.quote.body}</p>
-                        <p> --{this.state.quote.author}</p>
+                        <ItalicQuote> --{this.state.quote.author}</ItalicQuote>
                         </div>
                         <DisplayFlex>
                             {this
